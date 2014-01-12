@@ -12,7 +12,8 @@ module.exports = function(grunt){
       development: {
         files: {
           //css file : less file
-          "../css/sample.css": "../less/default.less"
+          "../css/style.css": "../css/style.less",
+          "../components/bootstrap/css/bootstrap.css": "../components/bootstrap/less/bootstrap.less"
         }
       },
       production: {
@@ -21,8 +22,8 @@ module.exports = function(grunt){
         },
         files: {
           //css file : less file
-          "../css/sample.css": "../less/default.less"
-
+          "../css/style.css": "../css/style.less",
+          "../components/bootstrap/css/bootstrap.css": "../components/bootstrap/less/bootstrap.less"
         }
       }
     },
@@ -30,19 +31,20 @@ module.exports = function(grunt){
     concat: {
       development: {
         //連結するファイル
-        src: ["../css/sample.css","../css/sample2.css"],
+        src: ["../css/style.css","../components/bootstrap/css/bootstrap.css"],
         //出力ファイル
-        dest: "../css/sample.min.css"
-      },
+        dest: "../css/style.min.css"
+      }
+    },
 
     watch: {
       options: {
         livereload: true,
       },
       //監視対象とするファイル
-      files: "../less/default.less",
+      files: "../*",
       //変更があったときのタスク
-      tasks: ['less:development']
+      tasks: ['less:development', 'concat:development']
     },
 
     connect: {
