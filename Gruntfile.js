@@ -42,7 +42,7 @@ module.exports = function(grunt){
         livereload: true,
       },
       //監視対象とするファイル
-      files: "../*",
+      files: ["../*","../components/bootstrap/less/*","../css/style.less"],
       //変更があったときのタスク
       tasks: ['less:development', 'concat:development']
     },
